@@ -654,7 +654,7 @@ const ProjectDetailsPage = () => {
               <div className="flex justify-center gap-2 mt-6">
                 {project.gallery.map((_, index) => (
                   <button
-                    key={index}
+                    key={`gallery-thumb-${index}`}
                     onClick={() => setCurrentImageIndex(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-200 ${
                       index === currentImageIndex
@@ -755,7 +755,7 @@ const ProjectDetailsPage = () => {
                   <div className="flex gap-2">
                     {project.gallery.map((_, index) => (
                       <button
-                        key={index}
+                        key={`gallery-fullscreen-${index}`}
                         onClick={(e) => {
                           e.stopPropagation();
                           setCurrentImageIndex(index);

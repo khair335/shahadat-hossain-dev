@@ -95,7 +95,7 @@ const VoluntaryCarousel: React.FC<VoluntaryCarouselProps> = ({ volunteerData }) 
                       <ul className="space-y-2">
                         {volunteer.achievements.map((achievement, idx) => (
                           <li
-                            key={idx}
+                            key={`${volunteer.id}-achievement-${idx}`}
                             className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400"
                           >
                             <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-1.5 flex-shrink-0" />
@@ -116,9 +116,9 @@ const VoluntaryCarousel: React.FC<VoluntaryCarouselProps> = ({ volunteerData }) 
 
       {/* Mobile Navigation Dots */}
       <div className="flex justify-center gap-2 mt-8 md:hidden">
-        {volunteerData.map((_, index) => (
+        {volunteerData.map((volunteer) => (
           <div
-            key={index}
+            key={`${volunteer.id}-dot`}
             className="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-600"
           />
         ))}

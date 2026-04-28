@@ -68,7 +68,7 @@ const HeroSection = () => {
             { Comp: SiRedux, color: "#7c3aed", size: 52, top: "40%", right: "38%", delay: 2.1 },
           ].map((icon, index) => (
             <motion.div
-              key={index}
+              key={`hero-icon-${index}`}
               className="absolute opacity-70 dark:opacity-60"
               style={(() => {
                 const positionStyle: React.CSSProperties = {};
