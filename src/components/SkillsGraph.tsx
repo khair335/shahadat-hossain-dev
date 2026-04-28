@@ -23,7 +23,11 @@ import {
   SiPython,
   SiWix,
 } from "react-icons/si";
+import { Download } from "lucide-react";
+import { Button } from "@nextui-org/react";
 import CTAButton from "@/components/CTAButton";
+import Section from "@/components/Section";
+import PageHeader from "@/components/PageHeader";
 
 const RESUME_URL = process.env.NEXT_PUBLIC_RESUME_URL || "/resume.pdf";
 
@@ -215,50 +219,40 @@ type SkillCardProps = {
 };
 
 const SkillCard = ({ skill, index }: SkillCardProps) => {
-  const cardVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, delay: index * 0.05 },
-    },
-  };
-
   return (
     <motion.div
-      variants={cardVariants}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true, margin: "-50px" }}
-      whileHover={{ y: -4 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      whileHover={{ y: -5 }}
       className="group relative"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="relative bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700/80 rounded-lg p-4 transition-all duration-300 group-hover:border-blue-400/50 dark:group-hover:border-blue-400/30 group-hover:shadow-lg dark:group-hover:shadow-blue-500/10">
-        <div className="flex items-center gap-3 mb-3">
-          <div className="p-2 rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+      <div className="glassmorphism p-6 rounded-[2rem] hover:border-primary/50 transition-all duration-500">
+        <div className="flex items-center gap-4 mb-5">
+          <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-background/50 border border-border/50 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 text-primary">
             {skill.icon}
           </div>
           <div className="flex-1">
-            <h4 className="font-semibold text-slate-900 dark:text-slate-100 text-sm">
+            <h4 className="font-bold text-base tracking-tight">
               {skill.title}
             </h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Proficiency
-            </p>
+            <div className="flex justify-between items-center mt-1">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Expertise</span>
+              <span className="text-xs font-black text-primary">
+                {skill.level}%
+              </span>
+            </div>
           </div>
-          <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
-            {skill.level}%
-          </span>
         </div>
 
-        <div className="relative h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+        <div className="relative h-1.5 rounded-full bg-muted overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: `${skill.level}%` }}
-            transition={{ duration: 0.8, delay: index * 0.05, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
-            className="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
+            transition={{ duration: 1, delay: 0.2, ease: "circOut" }}
+            viewport={{ once: true }}
+            className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
           />
         </div>
       </div>
@@ -266,55 +260,35 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
   );
 };
 
-type CategoryProps = {
-  category: (typeof categories)[number];
-  index: number;
-};
-
 const SkillCategory = ({ category, index }: CategoryProps) => {
   const categorySkills = allSkills.filter((s) => s.category === category.key);
 
-  const headerVariants = {
-    initial: { opacity: 0, x: -20 },
-    animate: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, delay: index * 0.1 },
-    },
-  };
-
   return (
     <motion.div
-      variants={headerVariants}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true, margin: "-50px" }}
-      className="space-y-4"
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="space-y-8"
     >
-      {/* Category Header */}
-      <div className="space-y-2">
-        <div className="flex items-center gap-3">
-          <div
-            className={`w-1 h-8 rounded-full bg-gradient-to-b ${category.color}`}
-          />
-          <div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-              {category.title}
-            </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              {category.description}
-            </p>
-          </div>
+      <div className="flex items-center gap-4">
+        <div className={`w-1.5 h-10 rounded-full bg-gradient-to-b ${category.color}`} />
+        <div>
+          <h3 className="text-2xl font-black tracking-tight font-outfit uppercase">
+            {category.title}
+          </h3>
+          <p className="text-sm text-muted-foreground font-medium">
+            {category.description}
+          </p>
         </div>
       </div>
 
-      {/* Skills Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pl-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {categorySkills.map((skill, idx) => (
           <SkillCard
             key={skill.title}
             skill={skill}
-            index={index * 5 + idx}
+            index={idx}
           />
         ))}
       </div>
@@ -324,52 +298,62 @@ const SkillCategory = ({ category, index }: CategoryProps) => {
 
 const SkillsGraph: React.FC = () => {
   return (
-    <div className="space-y-12 px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
-      {/* Introduction */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-12"
-      >
-        <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          A comprehensive breakdown of my technical expertise across the modern web development stack. Each skill reflects hands-on production experience and continuous growth.
-        </p>
-      </motion.div>
+    <Section id="skills" className="relative overflow-hidden py-32">
+      {/* Background Glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px] -z-10" />
 
-      {/* Skills by Category */}
-      <div className="space-y-16">
-        {categories.map((category, index) => (
-          <SkillCategory key={category.key} category={category} index={index} />
-        ))}
-      </div>
+      <div className="max-w-7xl mx-auto px-6">
+        <PageHeader 
+          title="Skills Map" 
+          subtitle="A comprehensive overview of my technical expertise and proficiency levels." 
+        />
 
-      {/* Resume CTA Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-700"
-      >
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-              Want the details?
-            </h3>
-            <p className="text-slate-600 dark:text-slate-400">
-              Download my resume to see my full experience, projects, and certifications.
-            </p>
-          </div>
-          <CTAButton asChild>
-            <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" download>
-              Download Resume
-            </a>
-          </CTAButton>
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <p className="text-xl text-muted-foreground font-medium leading-relaxed">
+            My technical stack is built on a foundation of performance and scalability. 
+            I leverage modern tools to deliver high-end digital solutions.
+          </p>
         </div>
-      </motion.div>
-    </div>
+
+        <div className="space-y-24">
+          {categories.map((category, index) => (
+            <SkillCategory key={category.key} category={category} index={index} />
+          ))}
+        </div>
+
+        {/* Resume CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-32 pt-20 border-t border-border/50"
+        >
+          <div className="glassmorphism rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 border-none shadow-2xl">
+            <div className="max-w-xl text-center md:text-left">
+              <h3 className="text-3xl md:text-4xl font-black mb-4 tracking-tight font-outfit">
+                Looking for full <span className="text-gradient">technical specifications</span>?
+              </h3>
+              <p className="text-lg text-muted-foreground font-medium">
+                For a detailed breakdown of my professional experience and project history, you can download my comprehensive resume.
+              </p>
+            </div>
+            <Button 
+              size="lg" 
+              radius="full" 
+              className="w-full md:w-auto bg-primary text-white font-black px-12 h-16 text-sm md:text-lg shadow-xl shadow-primary/20 uppercase tracking-widest group"
+              asChild
+            >
+              <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
+                <Download size={22} className="group-hover:translate-y-1 transition-transform" />
+                Download Resume
+              </a>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    </Section>
   );
 };
 

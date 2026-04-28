@@ -99,24 +99,20 @@ const VoluntarySection = () => {
   return (
     <Section 
       id="voluntary" 
-      className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 relative overflow-hidden"
+      className="relative overflow-hidden"
     >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-2000" />
-      </div>
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
 
       <div className="relative z-10">
-        <div className="text-center mb-12">
-          <PageHeader 
-            title="Volunteer Work" 
-            subtitle="Giving back to the community through technology and education" 
-          />
-        </div>
+        <PageHeader 
+          title="Volunteer Work" 
+          subtitle="Giving back to the community through technology and education." 
+        />
 
-        {/* Client Component for Carousel */}
-        <VoluntaryCarousel volunteerData={volunteerData} />
+        <div className="mt-20">
+          <VoluntaryCarousel volunteerData={volunteerData} />
+        </div>
       </div>
     </Section>
   );

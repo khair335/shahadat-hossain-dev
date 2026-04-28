@@ -21,7 +21,7 @@ interface VoluntaryCarouselProps {
 
 const VoluntaryCarousel: React.FC<VoluntaryCarouselProps> = ({ volunteerData }) => {
   return (
-    <div className="max-w-6xl mx-auto px-4">
+    <div className="max-w-7xl mx-auto px-6">
       <Carousel
         opts={{
           align: "start",
@@ -29,100 +29,87 @@ const VoluntaryCarousel: React.FC<VoluntaryCarouselProps> = ({ volunteerData }) 
         }}
         className="w-full"
       >
-        <CarouselContent className="-ml-2 md:-ml-4">
+        <CarouselContent className="-ml-6">
           {volunteerData.map((volunteer, index) => (
-            <CarouselItem key={volunteer.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={volunteer.id} className="pl-6 md:basis-1/2 lg:basis-1/3">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="h-full"
               >
-                <Card className="h-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                <div className="glassmorphism h-full rounded-[2.5rem] overflow-hidden hover:border-primary/50 transition-all duration-500 group flex flex-col">
                   {/* Image */}
                   {volunteer.image && (
-                    <div className="relative h-48 w-full overflow-hidden">
+                    <div className="relative h-60 w-full overflow-hidden">
                       <Image
                         src={volunteer.image}
                         alt={volunteer.organization}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <Badge className="absolute top-4 right-4 bg-blue-600 dark:bg-blue-500 text-white border-0">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                      <span className="absolute top-6 right-6 px-4 py-1.5 glassmorphism rounded-full text-[10px] font-black uppercase tracking-widest text-primary border-none">
                         {volunteer.category}
-                      </Badge>
+                      </span>
                     </div>
                   )}
 
-                  <CardContent className="p-6">
-                    {/* Organization & Role */}
-                    <div className="mb-4">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-                        {volunteer.organization}
-                      </h3>
-                      <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 flex items-center gap-1">
-                        <Heart size={14} />
+                  <div className="p-8 flex-1 flex flex-col">
+                    <div className="mb-6">
+                      <p className="text-xs font-black uppercase tracking-widest text-primary mb-2 flex items-center gap-2">
+                        <Heart size={14} className="text-accent" />
                         {volunteer.role}
                       </p>
+                      <h3 className="text-2xl font-bold tracking-tight">
+                        {volunteer.organization}
+                      </h3>
                     </div>
 
-                    {/* Period & Location */}
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                        <Calendar size={14} />
+                    <div className="flex flex-wrap gap-4 mb-6">
+                      <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                        <Calendar size={14} className="text-primary" />
                         <span>{volunteer.period}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                        <MapPin size={14} />
+                      <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                        <MapPin size={14} className="text-primary" />
                         <span>{volunteer.location}</span>
                       </div>
                     </div>
 
-                    {/* Description */}
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
-                      {volunteer.description}
+                    <p className="text-muted-foreground leading-relaxed mb-8 flex-1 italic">
+                      &quot;{volunteer.description}&quot;
                     </p>
 
-                    {/* Achievements */}
-                    <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Award size={16} className="text-green-600 dark:text-green-400" />
-                        <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
-                          Key Achievements
-                        </span>
-                      </div>
-                      <ul className="space-y-2">
+                    <div className="pt-6 border-t border-border/50">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-4 flex items-center gap-2">
+                        <Award size={14} className="text-accent" />
+                        Impact & Achievements
+                      </p>
+                      <div className="flex flex-wrap gap-2">
                         {volunteer.achievements.map((achievement, idx) => (
-                          <li
-                            key={`${volunteer.id}-achievement-${idx}`}
-                            className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400"
+                          <span
+                            key={idx}
+                            className="px-3 py-1 rounded-full bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-wider"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-1.5 flex-shrink-0" />
-                            <span>{achievement}</span>
-                          </li>
+                            {achievement}
+                          </span>
                         ))}
-                      </ul>
+                      </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden md:flex -left-12 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" />
-        <CarouselNext className="hidden md:flex -right-12 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" />
+        <div className="flex justify-center gap-4 mt-12">
+          <CarouselPrevious className="static translate-y-0 h-12 w-12 glassmorphism border-none hover:bg-primary hover:text-white transition-all" />
+          <CarouselNext className="static translate-y-0 h-12 w-12 glassmorphism border-none hover:bg-primary hover:text-white transition-all" />
+        </div>
       </Carousel>
-
-      {/* Mobile Navigation Dots */}
-      <div className="flex justify-center gap-2 mt-8 md:hidden">
-        {volunteerData.map((volunteer) => (
-          <div
-            key={`${volunteer.id}-dot`}
-            className="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-600"
-          />
-        ))}
-      </div>
     </div>
   );
 };

@@ -2,68 +2,81 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
 import { getAllBlogPosts } from "@/lib/blog";
+import { Button } from "@nextui-org/react";
 
 const BlogSection = () => {
   const posts = getAllBlogPosts().slice(0, 3); // Show only first 3 on homepage
 
   return (
-    <section id="blog" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-5xl mx-auto px-4">
+    <section id="blog" className="relative py-32 overflow-hidden">
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 36 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.54 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold mb-2 text-gray-900 dark:text-white">
-            Blog & Insights
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+            Latest <span className="text-gradient">Insights</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-5"></div>
-          <p className="mx-auto max-w-2xl text-lg text-gray-700 dark:text-gray-300">
-            Sharing knowledge to help React developers in Bangladesh and beyond!
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            Sharing my thoughts and knowledge on the latest trends in web development.
           </p>
         </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {posts.map((post, idx) => (
             <motion.article
               key={post.id}
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.49, delay: idx * 0.13 }}
-              className="bg-gray-50 dark:bg-gray-800 rounded-xl p-7 shadow-lg hover:shadow-xl group"
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="glassmorphism p-8 rounded-[2.5rem] hover:border-primary/50 transition-all duration-500 group"
             >
-              <header>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{post.title}</h3>
-                <time className="text-xs font-medium text-blue-600 dark:text-blue-400">{post.date}</time>
+              <header className="mb-6">
+                <time className="text-xs font-bold uppercase tracking-widest text-primary mb-3 block">
+                  {post.date}
+                </time>
+                <h3 className="text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">
+                  {post.title}
+                </h3>
               </header>
-              <p className="text-gray-600 dark:text-gray-300 my-2">{post.excerpt}</p>
+              <p className="text-muted-foreground mb-8 line-clamp-3 leading-relaxed">
+                {post.excerpt}
+              </p>
               <Link
                 href={`/blog/${post.slug}`}
-                className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 font-medium hover:underline mt-2"
+                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider hover:gap-3 transition-all"
               >
-                Read More
-                <ExternalLink size={16} />
+                READ MORE <ArrowRight size={16} />
               </Link>
             </motion.article>
           ))}
         </div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12"
+          className="text-center mt-20 px-6"
         >
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
-          >
-            View All Posts
-            <ExternalLink size={16} />
+          <Link href="/blog" className="block sm:inline-block w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              radius="full" 
+              variant="bordered"
+              className="w-full sm:w-auto px-10 h-16 text-sm md:text-lg font-black uppercase tracking-widest border-primary/20 hover:border-primary transition-all shadow-xl hover:shadow-primary/5"
+            >
+              All Articles
+              <ArrowRight size={18} />
+            </Button>
           </Link>
         </motion.div>
       </div>
