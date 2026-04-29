@@ -350,6 +350,7 @@ const SkillsGraph: React.FC = () => {
               className="w-full md:w-auto bg-primary text-white font-black px-12 h-16 text-sm md:text-lg shadow-xl shadow-primary/20 uppercase tracking-widest group"
               as="a"
               href={RESUME_URL}
+              download="Shahadat-Hossain-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >

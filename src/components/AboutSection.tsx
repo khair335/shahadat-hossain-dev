@@ -153,6 +153,7 @@ const AboutSection = () => (
                 className="font-black px-10 h-16 text-sm md:text-lg glassmorphism border-none uppercase tracking-widest"
                 as="a"
                 href={RESUME_URL}
+                download="Shahadat-Hossain-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
