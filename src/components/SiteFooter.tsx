@@ -11,7 +11,7 @@ export default function SiteFooter() {
     <footer className="relative py-24 overflow-hidden border-t border-border/50">
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -z-10" />
-      
+
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
           {/* Brand Column */}
@@ -20,7 +20,7 @@ export default function SiteFooter() {
               SHAHADAT<span className="text-primary">.</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-sm leading-relaxed">
-              Building high-end digital experiences with modern technologies. 
+              Building high-end digital experiences with modern technologies.
               Focused on performance, scalability, and exceptional UI/UX.
             </p>
             <div className="flex gap-5">
@@ -54,7 +54,7 @@ export default function SiteFooter() {
                 { label: "Blog", href: "/blog" },
               ].map((link) => (
                 <li key={link.label}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-muted-foreground hover:text-foreground transition-colors font-medium flex items-center gap-2 group"
                   >
@@ -71,14 +71,14 @@ export default function SiteFooter() {
             <div className="space-y-6">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Email</p>
-                <p className="font-bold text-lg">shahadat@example.com</p>
+                <p className="font-bold text-lg">shahadathossain4536@gmail.com</p>
               </div>
               <div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Location</p>
                 <p className="font-bold text-lg">Dhaka, Bangladesh</p>
               </div>
-              <Link 
-                href="/#contact" 
+              <Link
+                href="/#contact"
                 className="inline-flex items-center gap-2 text-primary font-black uppercase tracking-widest text-xs hover:gap-3 transition-all"
               >
                 Hire Me <ExternalLink size={14} />

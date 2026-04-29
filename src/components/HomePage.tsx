@@ -63,11 +63,11 @@ const HomePage = () => {
 
       <section id="testimonials" className="relative py-32 overflow-hidden">
         <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none -z-10" />
-        
+
         <div className="max-w-7xl mx-auto px-6">
-          <PageHeader 
-            title="Client Feedback" 
-            subtitle="What partners and clients say about our collaboration." 
+          <PageHeader
+            title="Client Feedback"
+            subtitle="What partners and clients say about our collaboration."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
@@ -118,7 +118,7 @@ const HomePage = () => {
         {/* Background Glows */}
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px] pointer-events-none -z-10" />
-        
+
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
             <motion.div
@@ -134,10 +134,10 @@ const HomePage = () => {
               <p className="text-xl text-muted-foreground mb-16 leading-relaxed max-w-lg font-medium">
                 Have a project in mind? Whether it&apos;s a complex web application or a simple landing page, I&apos;m ready to help you bring it to life.
               </p>
-              
+
               <div className="space-y-10">
                 {[
-                  { icon: <Mail className="text-primary" size={24} />, label: "Email", value: "shahadat@example.com", sub: "Available for freelance" },
+                  { icon: <Mail className="text-primary" size={24} />, label: "Email", value: "shahadathossain4536@gmail.com", sub: "Available for freelance" },
                   { icon: <Phone className="text-primary" size={24} />, label: "Phone", value: "+880 123 456 7890", sub: "Mon-Fri, 9am-6pm" },
                   { icon: <MapPin className="text-primary" size={24} />, label: "Location", value: "Dhaka, Bangladesh", sub: "Worldwide remote" },
                 ].map((item, idx) => (
@@ -163,12 +163,16 @@ const HomePage = () => {
               className="relative"
             >
               <div className="glassmorphism p-12 md:p-16 rounded-[3.5rem] border-none shadow-2xl relative z-10">
-                <form className="space-y-8">
+                <form action="https://formsubmit.co/shahadathossain4536@gmail.com" method="POST" className="space-y-8">
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
                       <label className="text-[10px] font-black ml-1 uppercase tracking-[0.2em] text-muted-foreground">Full Name</label>
                       <Input
                         type="text"
+                        name="name"
+                        required
                         placeholder="John Doe"
                         className="h-16 rounded-2xl bg-background/50 border-border/50 focus:border-primary transition-all px-6 text-base font-medium"
                       />
@@ -177,6 +181,8 @@ const HomePage = () => {
                       <label className="text-[10px] font-black ml-1 uppercase tracking-[0.2em] text-muted-foreground">Email Address</label>
                       <Input
                         type="email"
+                        name="email"
+                        required
                         placeholder="john@example.com"
                         className="h-16 rounded-2xl bg-background/50 border-border/50 focus:border-primary transition-all px-6 text-base font-medium"
                       />
@@ -186,6 +192,8 @@ const HomePage = () => {
                     <label className="text-[10px] font-black ml-1 uppercase tracking-[0.2em] text-muted-foreground">Subject</label>
                     <Input
                       type="text"
+                      name="_subject"
+                      required
                       placeholder="Project Inquiry"
                       className="h-16 rounded-2xl bg-background/50 border-border/50 focus:border-primary transition-all px-6 text-base font-medium"
                     />
@@ -193,6 +201,8 @@ const HomePage = () => {
                   <div className="space-y-3">
                     <label className="text-[10px] font-black ml-1 uppercase tracking-[0.2em] text-muted-foreground">Message</label>
                     <Textarea
+                      name="message"
+                      required
                       placeholder="Tell me more about your project..."
                       rows={5}
                       className="rounded-2xl bg-background/50 border-border/50 focus:border-primary transition-all p-6 text-base font-medium"
@@ -208,7 +218,7 @@ const HomePage = () => {
                   </Button>
                 </form>
               </div>
-              
+
               {/* Decorative circle behind form */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl -z-0" />
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl -z-0" />
