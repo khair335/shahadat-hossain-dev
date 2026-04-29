@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
@@ -9,10 +11,8 @@ import VoluntarySection from "@/components/VoluntarySection";
 import BlogSection from "@/components/BlogSection";
 import SkillsGraph from "@/components/SkillsGraph";
 import SiteFooter from "@/components/SiteFooter";
-import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
 import { Button } from "@nextui-org/react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Star } from "lucide-react";

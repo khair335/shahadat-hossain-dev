@@ -212,7 +212,8 @@ const CarouselPrevious = React.forwardRef<
       )}
       disabled={!canScrollPrev}
       onPress={scrollPrev}
-      {...props}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      {...(props as any)}
     >
       <ArrowLeft className="h-4 w-4" />
       <span className="sr-only">Previous slide</span>
@@ -241,7 +242,8 @@ const CarouselNext = React.forwardRef<
       )}
       disabled={!canScrollNext}
       onPress={scrollNext}
-      {...props}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      {...(props as any)}
     >
       <ArrowRight className="h-4 w-4" />
       <span className="sr-only">Next slide</span>

@@ -6,12 +6,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
 import { useState } from "react";
 import { NextUIProvider } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
+  const router = useRouter();
+
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-      <NextUIProvider>
+      <NextUIProvider navigate={router.push}>
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
             {children}

@@ -111,7 +111,8 @@ const TimelineSection = () => {
                   >
                     <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
                       <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center bg-primary/5 text-primary group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-inner">
-                        {React.cloneElement(item.icon as React.ReactElement, { size: 20 })}
+                        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                        {React.cloneElement(item.icon as React.ReactElement, { size: 20 } as any)}
                       </div>
                       <div>
                         <h3 className="text-xl md:text-2xl font-black tracking-tight font-outfit leading-tight mb-1">{item.title}</h3>

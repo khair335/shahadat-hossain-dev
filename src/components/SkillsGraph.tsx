@@ -260,6 +260,11 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
   );
 };
 
+interface CategoryProps {
+  category: typeof categories[0];
+  index: number;
+}
+
 const SkillCategory = ({ category, index }: CategoryProps) => {
   const categorySkills = allSkills.filter((s) => s.category === category.key);
 
@@ -343,12 +348,15 @@ const SkillsGraph: React.FC = () => {
               size="lg" 
               radius="full" 
               className="w-full md:w-auto bg-primary text-white font-black px-12 h-16 text-sm md:text-lg shadow-xl shadow-primary/20 uppercase tracking-widest group"
-              asChild
+              as="a"
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
+              <span className="flex items-center justify-center gap-3">
                 <Download size={22} className="group-hover:translate-y-1 transition-transform" />
-                Download Resume
-              </a>
+                Download Full Resume
+              </span>
             </Button>
           </div>
         </motion.div>

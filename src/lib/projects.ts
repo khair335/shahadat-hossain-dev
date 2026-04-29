@@ -227,7 +227,7 @@ export const projects: Project[] = [
   rating: "—"
 },
  {
-  "id": 3,
+  "id": 4,
   "title": "MobileInfoHub — Device Specs, Comparisons & News Platform",
   "description": "A Next.js web platform for browsing mobile device specifications, comparing phones, discovering top devices, and reading tech news/blogs with SEO optimization, ads placements, and theme support.",
   "detailedDescription": "MobileInfoHub is a content-rich Next.js application focused on mobile device discovery and comparison. It includes device listing and detail pages, brand-wise browsing, search and phone-finder UX, comparison modules, and sections like Latest Devices, Upcoming Devices, Top Devices, and Top Favorites. The site uses SSR for fast first load and SEO (Next SEO + structured data), integrates advertisement placements (top banner, sidebar, on-load popup), supports dark mode via a ThemeProvider, and includes authentication flows (login/register modal) with client state management (Redux) and server data fetching utilities. Built for performance, responsiveness, and daily content updates (news + blogs).",

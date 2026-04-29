@@ -76,7 +76,8 @@ const ServicesSection = () => (
             <div className="relative z-10 flex flex-col h-full">
               <div className="flex-1">
                 <div className={`w-14 h-14 md:w-16 md:h-16 rounded-[1.5rem] flex items-center justify-center mb-8 md:mb-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-xl ${service.color}`}>
-                  {React.cloneElement(service.icon as React.ReactElement, { size: 24 })}
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  {React.cloneElement(service.icon as React.ReactElement, { size: 24 } as any)}
                 </div>
                 
                 <div>

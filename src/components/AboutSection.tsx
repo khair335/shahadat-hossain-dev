@@ -6,14 +6,13 @@ import {
   Code,
   UserCheck,
   Download,
-  ArrowRight,
   CheckCircle,
   Star,
   Target
 } from "lucide-react";
+import Link from "next/link";
 import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
-import CTAButton from "@/components/CTAButton";
 import { Button } from "@nextui-org/react";
 
 const RESUME_URL = process.env.NEXT_PUBLIC_RESUME_URL || "/resume.pdf";
@@ -142,20 +141,22 @@ const AboutSection = () => (
                 size="lg"
                 radius="full"
                 className="bg-primary text-white font-black px-10 h-16 text-sm md:text-lg uppercase tracking-widest shadow-xl shadow-primary/20"
-                asChild
+                as={Link}
+                href="/#contact"
               >
-                <a href="#contact">Get In Touch</a>
+                Get In Touch
               </Button>
               <Button
                 size="lg"
                 radius="full"
                 variant="bordered"
                 className="font-black px-10 h-16 text-sm md:text-lg glassmorphism border-none uppercase tracking-widest"
-                asChild
+                as="a"
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <a className="flex items-center" href={RESUME_URL} target="_blank" rel="noopener noreferrer">
-                  <Download size={18} className="mr-2" /> Resume
-                </a>
+                <Download size={18} className="mr-2" /> Resume
               </Button>
             </div>
           </div>

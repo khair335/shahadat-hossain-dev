@@ -4,7 +4,7 @@ import { motion, Variants } from 'framer-motion';
 
 interface AnimatedTextProps {
   text: string;
-  el?: React.ElementType;
+  el?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div';
   className?: string;
   stagger?: number;
   baseDelay?: number;

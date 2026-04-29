@@ -3,10 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Clock, ArrowRight, User, Hash } from "lucide-react";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { getAllBlogPosts } from "@/lib/blog";
 import PageHeader from "@/components/PageHeader";
-import { motion } from "framer-motion";
 import { Button } from "@nextui-org/react";
 
 export default function BlogPage() {

@@ -24,9 +24,7 @@ import {
   Palette,
   Layers,
   Maximize2,
-  X,
-  ExternalLink,
-  ChevronRight as ChevronIcon
+  X
 } from "lucide-react";
 import {
   SiNextdotjs,
@@ -58,7 +56,7 @@ import { projects, Project } from "@/lib/projects";
 import { Button } from "@nextui-org/react";
 
 // Technology icon mapping
-const techIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+const techIcons: Record<string, React.ComponentType<{ className?: string; size?: number | string }>> = {
   "Next.js": SiNextdotjs,
   "React": SiReact,
   "Stripe": SiStripe,
@@ -92,7 +90,6 @@ const ProjectDetailsPage = () => {
   const [project, setProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isZoomed, setIsZoomed] = useState(false);
 
   const nextImage = useCallback(() => {
     if (project) {

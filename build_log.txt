@@ -1,0 +1,65 @@
+yarn run v1.22.22
+$ next build --turbopack
+   ▲ Next.js 15.5.3 (Turbopack)
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+   Creating an optimized production build ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ ✓ Finished writing to disk in 251ms
+ ✓ Compiled successfully in 3.5s
+   Linting and checking validity of types ...
+
+Failed to compile.
+
+./src/components/AppSidebar.tsx
+15:70  Warning: 'MessageSquare' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/BlogSection.tsx
+5:10  Warning: 'ExternalLink' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Dashboard/HeroContentEditor.tsx
+17:10  Warning: 'taglines' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/HeroCanvas.tsx
+22:13  Warning: 'state' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/PortfolioSection.tsx
+6:8  Warning: 'CTAButton' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Section.tsx
+5:10  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/ServicesSection.tsx
+6:43  Warning: 'Search' is defined but never used.  @typescript-eslint/no-unused-vars
+6:72  Warning: 'Layers' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/SkillsGraph.tsx
+28:8  Warning: 'CTAButton' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/TimelineSection.tsx
+2:25  Warning: 'useState' is defined but never used.  @typescript-eslint/no-unused-vars
+2:35  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars
+2:46  Warning: 'useCallback' is defined but never used.  @typescript-eslint/no-unused-vars
+2:59  Warning: 'useMemo' is defined but never used.  @typescript-eslint/no-unused-vars
+6:28  Warning: 'ChevronUp' is defined but never used.  @typescript-eslint/no-unused-vars
+6:39  Warning: 'ChevronDown' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/VoluntaryCarousel.tsx
+13:10  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars
+13:16  Warning: 'CardContent' is defined but never used.  @typescript-eslint/no-unused-vars
+14:10  Warning: 'Badge' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/ui/carousel.tsx
+215:21  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+244:21  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/hooks/use-toast.ts
+18:7  Warning: 'actionTypes' is assigned a value but only used as a type.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

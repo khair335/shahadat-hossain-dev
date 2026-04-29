@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import { ExternalLink, Github, Eye, ArrowRight } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
 import { projects } from "@/lib/projects";
@@ -41,11 +41,11 @@ const PortfolioSection = () => (
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
-                <Link href={`/projects/${project.id}`}>
+                <NextLink href={`/projects/${project.id}`}>
                   <Button isIconOnly radius="full" className="bg-white text-black hover:scale-110 transition-transform">
                     <Eye size={20} />
                   </Button>
-                </Link>
+                </NextLink>
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <Button isIconOnly radius="full" className="bg-primary text-white hover:scale-110 transition-transform">
                     <ExternalLink size={20} />
@@ -72,9 +72,9 @@ const PortfolioSection = () => (
                 {project.description}
               </p>
               <div className="flex items-center justify-between">
-                <Link href={`/projects/${project.id}`} className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest hover:gap-3 transition-all text-primary">
+                <NextLink href={`/projects/${project.id}`} className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest hover:gap-3 transition-all text-primary">
                   LEARN MORE <ArrowRight size={16} />
-                </Link>
+                </NextLink>
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors p-2 glassmorphism rounded-full">
                   <Github size={20} />
                 </a>
@@ -91,17 +91,17 @@ const PortfolioSection = () => (
         transition={{ duration: 0.5, delay: 0.4 }}
         className="text-center mt-20 px-6"
       >
-        <Link href="/projects" className="block sm:inline-block w-full sm:w-auto">
-          <Button 
-            size="lg" 
-            radius="full" 
-            variant="bordered"
-            className="w-full sm:w-auto px-10 h-16 text-sm md:text-lg font-black uppercase tracking-widest border-primary/20 hover:border-primary transition-all shadow-xl hover:shadow-primary/5"
-          >
-            Explore All Projects
-            <ArrowRight size={18} />
-          </Button>
-        </Link>
+        <Button 
+          as={NextLink}
+          href="/projects"
+          size="lg" 
+          radius="full" 
+          variant="bordered"
+          className="w-full sm:w-auto px-10 h-16 text-sm md:text-lg font-black uppercase tracking-widest border-primary/20 hover:border-primary transition-all shadow-xl hover:shadow-primary/5"
+        >
+          Explore All Projects
+          <ArrowRight size={18} />
+        </Button>
       </motion.div>
     </div>
   </section>

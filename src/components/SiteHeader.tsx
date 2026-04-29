@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuToggle, NavbarMenuItem, Button, Link } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuToggle, NavbarMenuItem, Button } from "@nextui-org/react";
+import NextLink from "next/link";
 import { useTheme } from "next-themes";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -80,7 +81,7 @@ export default function SiteHeader() {
         }`}
       >
         <NavbarContent justify="start">
-          <NavbarBrand as={Link} href="/#home" onPress={() => handleNavClick("home")} className="font-bold text-xl tracking-tight">
+          <NavbarBrand as={NextLink} href="/#home" onClick={() => handleNavClick("home")} className="font-bold text-xl tracking-tight">
             <span className="text-gradient">Shahadat</span>
           </NavbarBrand>
         </NavbarContent>
@@ -109,7 +110,7 @@ export default function SiteHeader() {
               variant="shadow" 
               size="sm" 
               radius="full"
-              as={Link} 
+              as={NextLink} 
               href="/#contact" 
               onPress={() => handleNavClick("contact")}
               className="font-bold"
@@ -166,7 +167,7 @@ export default function SiteHeader() {
                 radius="full" 
                 size="lg" 
                 className="w-full h-16 font-black text-lg uppercase tracking-widest shadow-xl shadow-primary/20" 
-                as={Link} 
+                as={NextLink} 
                 href="/#contact" 
                 onPress={() => handleNavClick("contact")}
               >

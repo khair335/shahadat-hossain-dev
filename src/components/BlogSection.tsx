@@ -1,6 +1,6 @@
 
 import React from "react";
-import Link from "next/link";
+import NextLink from "next/link";
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { getAllBlogPosts } from "@/lib/blog";
@@ -50,12 +50,12 @@ const BlogSection = () => {
               <p className="text-muted-foreground mb-8 line-clamp-3 leading-relaxed">
                 {post.excerpt}
               </p>
-              <Link
+              <NextLink
                 href={`/blog/${post.slug}`}
                 className="inline-flex items-center gap-2 text-sm font-bold tracking-wider hover:gap-3 transition-all"
               >
                 READ MORE <ArrowRight size={16} />
-              </Link>
+              </NextLink>
             </motion.article>
           ))}
         </div>
@@ -67,17 +67,17 @@ const BlogSection = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-20 px-6"
         >
-          <Link href="/blog" className="block sm:inline-block w-full sm:w-auto">
-            <Button 
-              size="lg" 
-              radius="full" 
-              variant="bordered"
-              className="w-full sm:w-auto px-10 h-16 text-sm md:text-lg font-black uppercase tracking-widest border-primary/20 hover:border-primary transition-all shadow-xl hover:shadow-primary/5"
-            >
-              All Articles
-              <ArrowRight size={18} />
-            </Button>
-          </Link>
+          <Button 
+            as={NextLink}
+            href="/blog"
+            size="lg" 
+            radius="full" 
+            variant="bordered"
+            className="w-full sm:w-auto px-10 h-16 text-sm md:text-lg font-black uppercase tracking-widest border-primary/20 hover:border-primary transition-all shadow-xl hover:shadow-primary/5"
+          >
+            All Articles
+            <ArrowRight size={18} />
+          </Button>
         </motion.div>
       </div>
     </section>

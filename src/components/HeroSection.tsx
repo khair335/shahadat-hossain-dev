@@ -4,10 +4,8 @@ import Image from "next/image";
 import CTAButton from "@/components/CTAButton";
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { SiUpwork, SiFiverr } from "react-icons/si";
-import AnimatedText from "./AnimatedText";
 import HeroCanvas from "./HeroCanvas";
-
-const RESUME_URL = process.env.NEXT_PUBLIC_RESUME_URL || "/resume.pdf";
+import { usePathname, useRouter } from "next/navigation";
 
 const socialLinks = [
   { icon: <SiUpwork size={18} />, url: "https://upwork.com/freelancers/shahadath19", label: "Upwork" },
@@ -18,9 +16,16 @@ const socialLinks = [
 ];
 
 const HeroSection = () => {
-  const nameText = "Shahadat Hossain";
-  const taglineText =
-    "I build digital experiences that are fast, beautiful, and accessible.";
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleNav = (id: string) => {
+    if (pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(`/#${id}`);
+    }
+  };
 
   return (
     <section
@@ -87,15 +92,15 @@ const HeroSection = () => {
             <CTAButton 
               size="lg" 
               className="w-full sm:w-auto px-10 h-16 shadow-xl shadow-primary/20"
-              onPress={() => document?.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onPress={() => handleNav("contact")}
             >
               Start a Project
             </CTAButton>
             <CTAButton
-              variant="outline"
+              variant="bordered"
               size="lg"
               className="w-full sm:w-auto px-10 h-16 glassmorphism border-none"
-              onPress={() => document?.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
+              onPress={() => handleNav("portfolio")}
             >
               View Work
             </CTAButton>

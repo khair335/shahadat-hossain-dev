@@ -2,7 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Clock, ArrowLeft, User, Tag, Share2 } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
 import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog";
 import { renderMarkdown } from "@/lib/markdown";
 

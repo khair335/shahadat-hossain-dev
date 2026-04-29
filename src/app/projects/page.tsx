@@ -3,9 +3,8 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import { ExternalLink, Github, Eye, Search, X, Code, ChevronRight } from "lucide-react";
-import CTAButton from "@/components/CTAButton";
 import { projects } from "@/lib/projects";
 import PageHeader from "@/components/PageHeader";
 import { Button } from "@nextui-org/react";
@@ -37,7 +36,7 @@ import {
 } from "react-icons/si";
 
 // Technology icon mapping
-const techIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+const techIcons: Record<string, React.ComponentType<{ className?: string; size?: number | string }>> = {
   "Next.js": SiNextdotjs,
   "React": SiReact,
   "Stripe": SiStripe,
@@ -151,11 +150,11 @@ export default function ProjectsPage() {
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                      <Link href={`/projects/${project.id}`}>
+                      <NextLink href={`/projects/${project.id}`}>
                         <Button isIconOnly radius="full" className="bg-white text-black hover:scale-110 transition-transform">
                           <Eye size={20} />
                         </Button>
-                      </Link>
+                      </NextLink>
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <Button isIconOnly radius="full" className="bg-primary text-white hover:scale-110 transition-transform">
                           <ExternalLink size={20} />
@@ -189,9 +188,9 @@ export default function ProjectsPage() {
                     </p>
 
                     <div className="mt-auto pt-8 border-t border-border/50 flex items-center justify-between">
-                      <Link href={`/projects/${project.id}`} className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest text-primary hover:gap-3 transition-all">
+                      <NextLink href={`/projects/${project.id}`} className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest text-primary hover:gap-3 transition-all">
                         EXPLORE PROJECT <ChevronRight size={16} />
-                      </Link>
+                      </NextLink>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors p-2 glassmorphism rounded-full">
                         <Github size={18} />
                       </a>
@@ -223,15 +222,15 @@ export default function ProjectsPage() {
 
         {/* Home Navigation */}
         <div className="mt-20 text-center">
-          <Link href="/">
-            <Button
-              radius="full"
-              variant="light"
-              className="px-10 h-16 font-black uppercase tracking-[0.2em] opacity-60 hover:opacity-100 transition-all text-xs"
-            >
-              ← Return to Main Page
-            </Button>
-          </Link>
+          <Button 
+            as={NextLink}
+            href="/"
+            radius="full" 
+            variant="light"
+            className="px-10 h-16 font-black uppercase tracking-[0.2em] opacity-60 hover:opacity-100 transition-all text-xs"
+          >
+            ← Return to Main Page
+          </Button>
         </div>
       </div>
     </main>
