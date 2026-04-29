@@ -7,12 +7,12 @@ import { Briefcase, Award, ChevronUp, ChevronDown, GraduationCap, TrendingUp } f
 
 const timeline = [
   {
-    year: "2021-2024",
+    year: "2023-2026",
     icon: <Briefcase size={22} />,
     title: "Senior Full-Stack Developer",
     company: "Freelance & Agency Partnerships",
-    desc: "Delivered 40+ production applications for startups and enterprise clients. Specialized in React/Next.js ecosystems with modern deployment strategies and performance optimization.",
-    stats: "40+ Production Apps",
+    desc: "Delivered 140+ production applications for startups and enterprise clients. Specialized in React/Next.js ecosystems with modern deployment strategies and performance optimization.",
+    stats: "140+ Production Websites",
     achievements: ["Modern React Architecture", "Performance Optimization", "Team Leadership"]
   },
   {
