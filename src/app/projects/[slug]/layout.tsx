@@ -1,8 +1,9 @@
 import { projects } from "@/lib/projects";
 import { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const project = projects.find(p => p.id.toString() === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find(p => p.id.toString() === slug);
   
   if (!project) {
     return {
