@@ -10,7 +10,6 @@ import TimelineSection from "@/components/TimelineSection";
 import VoluntarySection from "@/components/VoluntarySection";
 import BlogSection from "@/components/BlogSection";
 import SkillsGraph from "@/components/SkillsGraph";
-import SiteFooter from "@/components/SiteFooter";
 import PageHeader from "@/components/PageHeader";
 import { Button } from "@nextui-org/react";
 import { Input } from "@/components/ui/input";
@@ -217,8 +216,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      <SiteFooter />
     </div>
   );
 };

@@ -9,11 +9,9 @@ $ next build --turbopack
 Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
   npx update-browserslist-db@latest
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
- ✓ Finished writing to disk in 251ms
- ✓ Compiled successfully in 3.5s
+ ✓ Finished writing to disk in 214ms
+ ✓ Compiled successfully in 4.8s
    Linting and checking validity of types ...
-
-Failed to compile.
 
 ./src/components/AppSidebar.tsx
 15:70  Warning: 'MessageSquare' is defined but never used.  @typescript-eslint/no-unused-vars
@@ -53,13 +51,24 @@ Failed to compile.
 13:16  Warning: 'CardContent' is defined but never used.  @typescript-eslint/no-unused-vars
 14:10  Warning: 'Badge' is defined but never used.  @typescript-eslint/no-unused-vars
 
-./src/components/ui/carousel.tsx
-215:21  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
-244:21  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
-
 ./src/hooks/use-toast.ts
 18:7  Warning: 'actionTypes' is assigned a value but only used as a type.  @typescript-eslint/no-unused-vars
 
 info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+TypeError: b.default.createContext is not a function
+    at __TURBOPACK__module__evaluation__ (.next/server/chunks/ssr/_71a315ca._.js:1:179935)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:702:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:725:12)
+    at Context.esmImport [as i] (.next/server/chunks/ssr/[turbopack]_runtime.js:215:20)
+    at __TURBOPACK__module__evaluation__ (.next/server/chunks/ssr/[root-of-the-server]__43857195._.js:1:5720)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:702:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:725:12)
+    at Context.esmImport [as i] (.next/server/chunks/ssr/[turbopack]_runtime.js:215:20)
+    at __TURBOPACK__module__evaluation__ (.next/server/chunks/ssr/_0f426885._.js:1:33)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:702:9)
+
+> Build error occurred
+[Error: Failed to collect page data for /blog] { type: 'Error' }
 error Command failed with exit code 1.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

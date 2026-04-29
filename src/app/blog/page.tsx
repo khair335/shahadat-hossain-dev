@@ -1,4 +1,4 @@
-"use client";
+
 
 import React from "react";
 import Link from "next/link";
@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { getAllBlogPosts } from "@/lib/blog";
 import PageHeader from "@/components/PageHeader";
-import { Button } from "@nextui-org/react";
+
 
 export default function BlogPage() {
   const posts = getAllBlogPosts();
@@ -111,16 +111,12 @@ export default function BlogPage() {
           ))}
         </div>
 
-        {/* Navigation */}
-        <div className="mt-20 text-center">
-          <Link href="/">
-            <Button 
-              radius="full" 
-              variant="bordered" 
-              className="px-10 h-16 font-black uppercase tracking-widest border-primary/20 hover:border-primary transition-all shadow-xl hover:shadow-primary/5 text-sm md:text-lg"
-            >
-              ← Back to Home
-            </Button>
+        <div className="mt-20 text-center flex justify-center">
+          <Link 
+            href="/"
+            className="inline-flex items-center justify-center rounded-full border-2 border-primary/20 hover:border-primary px-10 h-16 font-black uppercase tracking-widest transition-all shadow-xl hover:shadow-primary/5 text-sm md:text-lg"
+          >
+            ← Back to Home
           </Link>
         </div>
       </div>
